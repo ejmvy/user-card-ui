@@ -2,7 +2,7 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { removePerson } from "../redux/personSlice";
-import { PersonState } from "../types";
+
 
 
 const PersonCard = ({ personInfo }: any) => {
@@ -11,7 +11,6 @@ const PersonCard = ({ personInfo }: any) => {
 
 
   const removePersonId = () => {
-    console.log('current', personInfo.name.first);
     const id = personInfo.id;
     dispatch(removePerson({ id }));
   }
