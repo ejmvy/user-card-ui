@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import PersonCard from "./PersonCard";
