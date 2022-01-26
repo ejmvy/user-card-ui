@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewPerson } from "../redux/personSlice";
+import { v4 as uuidv4 } from "uuid";
 
 
 const FetchNewPerson = () => {
@@ -38,14 +39,18 @@ const FetchNewPerson = () => {
   }
 
   const saveNewPerson = () => {
-    dispatch(addNewPerson(newPerson))
+    const addPerson = {
+      ...newPerson,
+      id: uuidv4(),
+    }
+    dispatch(addNewPerson(addPerson))
     setNewPerson(defaultPerson);
   }
 
   return (
     <Flex bg='tomato' w='50%' h='100vh' justifyContent='center' alignItems='center' flexDirection='column'>
  
-        <Button colorScheme='whiteAlpha' variant='solid' onClick={() => fetchData()}>Fetch New User</Button>
+        <Button _focus={{boxShadow: "none", outline: 'none'}} colorScheme='whiteAlpha' variant='solid' onClick={() => fetchData()}>Fetch New User</Button>
         { newPerson.name.first &&  
         <Flex flexDirection='column' alignItems='center' >
           <Box  mt='10' >

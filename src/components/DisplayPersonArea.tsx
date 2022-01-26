@@ -13,7 +13,7 @@ const DisplayPersonArea = () => {
 
   return (
     <Flex h='100vh' overflow='auto' w='50%' flexDirection='column' p={4}>
-      { personList.map(person => <PersonCard personInfo={person} /> )}
+      { personList.map((person, idx) => <PersonCard personInfo={person}  key={idx} /> )}
       
     </Flex>
   )
