@@ -3,10 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { store } from './redux/store';
+
+const theme = extendTheme({
+  // Set background to blackish color.
+  styles: {
+    // global: {
+    //   'html, body': {
+    //     backgroundColor: 'rgb(26,32,44)',
+    //   },
+    // },
+  },
+});
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ChakraProvider theme={theme}>
+         <App />
+      </ChakraProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
