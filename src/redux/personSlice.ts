@@ -23,12 +23,19 @@ export const personSlice = createSlice({
   reducers: {
     addNewPerson: (state, action: PayloadAction<PersonState>) => {
       console.log("add", action.payload);
+
       state.personList.push(action.payload);
+    },
+    removePerson: (state, action: PayloadAction<{ id: string }>) => {
+      console.log("id", action.payload.id);
+      state.personList = state.personList.filter(
+        (person) => person.id !== action.payload.id
+      );
     },
   },
 });
 
-export const { addNewPerson } = personSlice.actions;
+export const { addNewPerson, removePerson } = personSlice.actions;
 
 export const selectPeopleList = (state: RootState) => state.person.personList;
 
