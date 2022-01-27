@@ -1,6 +1,7 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { removePerson } from "../redux/personSlice";
 
 
@@ -8,16 +9,22 @@ import { removePerson } from "../redux/personSlice";
 const PersonCard = ({ personInfo }: any) => {
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const removePersonId = () => {
     const id = personInfo.id;
-    dispatch(removePerson({ id }));
+    navigate('/');
+    // dispatch(removePerson({ id }));
+    console.log('re');
+  }
+
+  const redirect = () => {
+    navigate(`/showCard/${personInfo.id}`);
   }
 
   return (
 
-    <Box boxShadow='base' rounded='md' my={4}>
+    <Box onClick={() => redirect()}  boxShadow='base' rounded='md' my={4} cursor='pointer'>
       <Flex>
         <Flex borderLeftRadius='8px' p={4}  bg='tomato' w='30%' flexDirection='column' alignItems='center'>
           <Box fontSize='xs' color='white' fontWeight='semibold'>
