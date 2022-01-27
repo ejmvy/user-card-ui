@@ -9,11 +9,9 @@ const DisplayPersonArea = () => {
 
   const personList = useSelector((state: RootState) => state.person.personList);
 
-  console.log('personList', personList);
-
   return (
     <Flex h='100vh' overflow='auto' w='50%' flexDirection='column' p={4}>
-      { personList.map((person, idx) => <PersonCard personInfo={person}  key={idx} /> )}
+      { personList.map((person, idx) => <PersonCard  personInfo={person}  key={idx} /> )}
       
     </Flex>
   )
