@@ -1,14 +1,17 @@
-import { Flex } from '@chakra-ui/react';
+import { Route, Routes } from "react-router";    
 import './App.css';
-import FetchNewPerson from './components/FetchNewPerson';
-import DisplayPersonArea from './components/DisplayPersonArea';
+
+import LandingPage from './components/LandingPage';
+import DisplayCard from './components/DisplayCard';
 
 function App() {
   return (
-    <Flex>
-      <FetchNewPerson />
-      <DisplayPersonArea />
-    </Flex>
+
+      <Routes>
+        <Route path='/'  element={<LandingPage />} />
+        <Route path='/showCard/:id'  element={<DisplayCard />} />
+      </Routes>
+
   );
 }
 
